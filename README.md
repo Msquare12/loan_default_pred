@@ -1,4 +1,4 @@
-# Loan Default Prediction — End-to-End ML System
+# Loan Default Prediction : End-to-End ML System
 
 This project demonstrates a **production-ready Machine Learning workflow** for predicting customer loan default risk.  
 It covers the full ML lifecycle - from data preprocessing and model training to explainability, drift detection, deployment, and monitoring.
@@ -19,6 +19,11 @@ It covers the full ML lifecycle - from data preprocessing and model training to 
 ## Exploratory Data Analysis (EDA)
 
 **Dataset:** `data/raw/Dataset.csv`
+
+**Command:**
+```bash
+python scripts/eda_report.py --input data/raw/Dataset.csv --outdir reports
+````
 
 **Summary Statistics**
 | Metric | Value |
@@ -58,14 +63,16 @@ It covers the full ML lifecycle - from data preprocessing and model training to 
 | Encoding | `OneHotEncoder` for categorical columns |
 | Output format | Saved as parquet in `data/processed/` |
 
-**Commands:**
-```bash
-python scripts/train.py --config configs/default.yaml
-````
 
 ---
 
 ## Model Training & Evaluation
+
+**Training Command:**
+```bash
+python scripts/train.py --config configs/default.yaml
+````
+
 
 **Model:** XGBoost
 **Evaluation dataset:** 20% test split
