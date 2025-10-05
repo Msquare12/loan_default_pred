@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env
+
+# Data (keep structure via .gitkeep)
+# data/raw/*
+# data/processed/*
+# !data/raw/.gitkeep
+# !data/processed/.gitkeep
+
+# MLflow artifacts (big, binary)
+mlruns/
+
+# Models (keep small explainability artifacts; exclude big binaries)
+# models/latest/*.joblib
+
+# Reports (keep small PNGs; LFS HTML optional)
+# reports/**/*.html

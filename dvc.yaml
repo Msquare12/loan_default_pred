@@ -1,0 +1,12 @@
+stages:
+  train:
+    cmd: python scripts/train.py --config configs/default.yaml
+    deps:
+      - data/raw/Dataset.csv
+      - configs/default.yaml
+      - src/models/train.py
+      - src/features/preprocess.py
+      - src/data/dataset.py
+      - src/data/schema.py
+    outs:
+      - models/

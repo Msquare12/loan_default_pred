@@ -1,0 +1,44 @@
+seed: 42
+data:
+  raw_path: data/raw/Dataset.csv
+  dict_path: data/raw/Data_Dictionary.csv
+  processed_dir: data/processed
+  target_col: Default
+  id_col: ID
+  test_size: 0.2
+  val_size: 0.1      # from train portion
+  stratify: true
+preprocessing:
+  numeric_imputer: median
+  scale_numeric: true
+  cap_outliers: false
+  cap_quantiles: [0.01, 0.99]
+model:
+  name: xgboost    # options: logistic_regression, xgboost
+  xgboost:
+    n_estimators: 300
+    max_depth: 5
+    learning_rate: 0.1
+    subsample: 0.9
+    colsample_bytree: 0.9
+    reg_lambda: 1.0
+    n_jobs: -1
+  logistic_regression:
+    C: 1.0
+    max_iter: 200
+    penalty: l2
+    solver: lbfgs
+training:
+  cv_folds: 5 #3 #5
+  use_class_weights: true
+evaluation:
+  metrics: [roc_auc, pr_auc, f1, recall, precision]
+  threshold_strategy: pr_max_f1  # options: default_0.5, pr_max_f1, cost_min
+  costs:
+    fn: 5.0   # cost multiplier false negative
+    fp: 1.0   # cost multiplier false positive
+mlflow:
+  tracking_uri: mlruns
+  experiment: loan-default
+serving:
+  model_dir: models/latest
