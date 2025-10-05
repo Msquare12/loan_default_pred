@@ -22,10 +22,3 @@ mlruns/
 
 # Reports (keep small PNGs; LFS HTML optional)
 # reports/**/*.html
-
-.github/
-=1.10
-models/20250925_114827/
-models/20250925_115416/
-models/20250925_121051/
-pytest.ini
