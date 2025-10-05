@@ -192,7 +192,6 @@ docker run -p 8000:8000 loan-default:latest
 
 * `/predict` → JSON prediction API
 * `/health` → health check
-* `/metrics` → performance metrics (optional for Prometheus)
 
 ---
 
